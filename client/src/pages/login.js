@@ -3,14 +3,14 @@ import axios from "axios";
 import { useNavigate, Navigate } from "react-router-dom";
 
 function Login() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/login", { email, password })
+      .post("http://localhost:8080/login", { username, password })
       .then((result) => {
         console.log(result);
         if (result.data === "Success") {
@@ -18,6 +18,8 @@ function Login() {
         }
       })
       .catch((err) => console.log(err));
+    setUsername("");
+    setPassword("");
   };
 
   return (
@@ -37,7 +39,7 @@ function Login() {
           className="w-full h-8 p-1 mb-6 focus:outline-none"
           id="username"
           type="text"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <label className="block mb-1 test-xl text-cyan-400" htmlFor="password">
           Password

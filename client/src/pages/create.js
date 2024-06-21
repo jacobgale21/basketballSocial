@@ -1,4 +1,10 @@
+import NavBar from "../components/header";
 function Create() {
-  return <div className="text-white">Create</div>;
+  return (
+    <div>
+      <NavBar />
+      <div className>Create</div>
+    </div>
+  );
 }
 export default Create;
