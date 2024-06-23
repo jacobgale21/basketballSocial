@@ -5,6 +5,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const User = require("./models/userSchema");
+const Goal = require("./models/goalSchema");
 const jwt = require("jsonwebtoken");
 
 const secret = "dsfasfdfdfdfsewqsekjnk";
@@ -63,4 +64,20 @@ app.post("/login", async (req, res) => {
       res.status(403).json({ error: "Incorrect username and password" });
     }
   });
+});
+
+app.post("/create", async (req, res) => {
+  try {
+    const { title, time, description } = req.body;
+
+    const newGoal = new Goal({
+      title,
+      time,
+      description,
+    });
+    await newGoal.save();
+    return res.status(200).json({ message: "created successfully" });
+  } catch (err) {
+    return res.status(404).json({ error: err });
+  }
 });

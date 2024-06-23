@@ -17,16 +17,16 @@ function NavBar() {
               Create
             </a>
             <a
+              href="/posts"
+              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Posts
+            </a>
+            <a
               href="/profile"
               className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               Profile
-            </a>
-            <a
-              href="/"
-              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Contact
             </a>
           </div>
         </div>
